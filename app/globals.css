@@ -1,22 +1,40 @@
 @import "tailwindcss";
 
 /* ── Design Tokens ─────────────────────────────────────── */
+/* Edit these variables to retheme the entire site.        */
 :root {
-  --brand: #2563eb;
-  --brand-light: #3b82f6;
-  --brand-dim: #dbeafe;
-  --ink: #0f172a;
-  --ink-mid: #334155;
-  --ink-soft: #64748b;
-  --ink-muted: #94a3b8;
-  --surface: #ffffff;
-  --surface-alt: #f8fafc;
+  /* Brand — logo pink → purple gradient palette */
+  --brand:        #9333ea;          /* primary purple */
+  --brand-end:    #e040a0;          /* hot pink (gradient end) */
+  --brand-light:  #a855f7;          /* lighter purple */
+  --brand-dim:    #f3e8ff;          /* very light lavender tint */
+  --brand-glow:   rgba(147,51,234,0.18);
+
+  /* Brand gradient (reusable) */
+  --brand-gradient: linear-gradient(135deg, #e040a0 0%, #9333ea 55%, #6d28d9 100%);
+  --brand-gradient-h: linear-gradient(90deg, #e040a0 0%, #9333ea 60%, #6d28d9 100%);
+
+  /* Ink / text */
+  --ink:          #0f172a;
+  --ink-mid:      #334155;
+  --ink-soft:     #64748b;
+  --ink-muted:    #94a3b8;
+
+  /* Surfaces */
+  --surface:      #ffffff;
+  --surface-alt:  #faf5ff;          /* faint lavender page tint */
   --surface-card: #ffffff;
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --shadow-card: 0 1px 3px rgba(15,23,42,0.06), 0 8px 24px rgba(15,23,42,0.07);
-  --shadow-hover: 0 4px 6px rgba(15,23,42,0.05), 0 16px 40px rgba(37,99,235,0.12);
-  --radius: 16px;
+
+  /* Borders */
+  --border:       #ede9f6;
+  --border-strong:#d8b4fe;
+
+  /* Shadows */
+  --shadow-card:  0 1px 3px rgba(88,28,135,0.05), 0 8px 24px rgba(88,28,135,0.07);
+  --shadow-hover: 0 4px 6px rgba(88,28,135,0.06), 0 16px 40px rgba(147,51,234,0.18);
+
+  /* Shape */
+  --radius:    16px;
   --radius-sm: 10px;
 
   /* Noise texture overlay — subtle grain */
@@ -34,6 +52,9 @@ body {
 }
 
 ::selection { background: var(--brand-dim); color: var(--brand); }
+
+/* Surface with subtle lavender tint for alternate sections */
+.bg-surface-alt { background: var(--surface-alt); }
 
 /* ── Animations ────────────────────────────────────────── */
 @keyframes fadeUp {
@@ -93,10 +114,10 @@ body {
 .text-shimmer {
   background: linear-gradient(
     90deg,
-    var(--brand) 0%,
-    #60a5fa 40%,
-    var(--brand) 60%,
-    #1d4ed8 100%
+    var(--brand-end) 0%,
+    var(--brand)     35%,
+    #c084fc          60%,
+    var(--brand-end) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -124,7 +145,7 @@ body {
   left: calc(50% + 32px);
   width: calc(100% - 64px);
   height: 1px;
-  background: linear-gradient(90deg, var(--border-strong), transparent);
+  background: linear-gradient(90deg, var(--brand-light), transparent);
 }
 
 /* ── Noise overlay mixin ───────────────────────────────── */
@@ -141,7 +162,7 @@ body {
 .section-divider {
   width: 48px;
   height: 3px;
-  background: var(--brand);
+  background: var(--brand-gradient-h);
   border-radius: 99px;
   margin: 0 auto 1.5rem;
 }
@@ -151,18 +172,20 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--brand);
-  color: #fff;
+  background: linear-gradient(90deg, #e040a0 0%, #9333ea 60%, #6d28d9 100%) !important;
+  color: #fff !important;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 99px;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 12px rgba(37,99,235,0.3);
+  transition: filter 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 14px rgba(147,51,234,0.35);
 }
 .btn-primary:hover {
-  background: #1d4ed8;
+  filter: brightness(1.12) saturate(1.1);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37,99,235,0.35);
+  box-shadow: 0 6px 22px rgba(147,51,234,0.5);
+  background: linear-gradient(90deg, #e040a0 0%, #9333ea 60%, #6d28d9 100%) !important;
+  color: #fff !important;
 }
 
 .btn-ghost {
@@ -229,8 +252,8 @@ body {
 
 /* Lens ring gentle pulse */
 @keyframes lensRingPulse {
-  0%, 100% { stroke-opacity: 1;   filter: drop-shadow(0 0 8px rgba(37,99,235,0.4)); }
-  50%       { stroke-opacity: 0.7; filter: drop-shadow(0 0 18px rgba(96,165,250,0.6)); }
+  0%, 100% { stroke-opacity: 1;   filter: drop-shadow(0 0 8px rgba(147,51,234,0.5)); }
+  50%       { stroke-opacity: 0.7; filter: drop-shadow(0 0 20px rgba(224,64,160,0.6)); }
 }
 .cl-lens-ring { animation: lensRingPulse 3s ease-in-out infinite; }
 

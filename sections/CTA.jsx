@@ -14,7 +14,7 @@ export default function CTA() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(37,99,235,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(147,51,234,0.09) 0%, transparent 70%)",
         }}
       />
 
@@ -37,7 +37,7 @@ export default function CTA() {
             type="email"
             placeholder="Work email address"
             required
-            className="flex-1 px-5 py-3.5 rounded-full border border-slate-200 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-slate-400 transition-shadow"
+            className="flex-1 px-5 py-3.5 rounded-full border border-slate-200 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent placeholder-slate-400 transition-shadow"
           />
           <button type="submit" className="btn-primary whitespace-nowrap">
             {SITE.cta.waitlist}
@@ -48,7 +48,7 @@ export default function CTA() {
           Or{" "}
           <a
             href={SITE.signupUrl}
-            className="text-blue-600 font-medium hover:underline"
+            className="text-purple-600 font-medium hover:underline"
           >
             create your account now →
           </a>
@@ -59,7 +59,7 @@ export default function CTA() {
           Have a question? Reach us at{" "}
           <a
             href={`mailto:${SITE.email}`}
-            className="text-slate-600 hover:text-blue-600 transition-colors"
+            className="text-slate-600 hover:text-purple-600 transition-colors"
           >
             {SITE.email}
           </a>

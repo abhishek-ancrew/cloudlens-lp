@@ -16,30 +16,29 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-slate-100"
+          ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-purple-100"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group">
-            {/* Icon mark */}
-            <span className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-sm font-bold shadow-md group-hover:shadow-blue-300/50 transition-shadow">
-              CL
-            </span>
-            <span className="font-bold text-lg tracking-tight text-slate-900">
-              {SITE.name.replace("AI", "")}<span className="text-blue-600">AI</span>
-            </span>
+
+          {/* Logo — actual logo.png from /public */}
+          <a href="#home" className="flex items-center group">
+            <img
+              src="/logo.png"
+              alt={SITE.name}
+              className="h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-80"
+            />
           </a>
 
-          {/* Desktop links */}
+          {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-slate-500 hover:text-slate-900 px-4 py-2 text-sm font-medium rounded-full hover:bg-slate-100 transition-all"
+                className="text-slate-500 hover:text-purple-700 px-4 py-2 text-sm font-medium rounded-full hover:bg-purple-50 transition-all"
               >
                 {link.name}
               </a>
@@ -50,7 +49,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href={SITE.loginUrl}
-              className="text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors"
+              className="text-slate-500 hover:text-purple-700 text-sm font-medium transition-colors"
             >
               Log in
             </a>
@@ -65,25 +64,25 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-purple-50 transition-colors"
             aria-label="Toggle menu"
           >
-            <div className={`w-5 h-0.5 bg-slate-700 transition-all ${menuOpen ? "rotate-45 translate-y-1" : ""}`} style={{marginBottom: '4px'}} />
-            <div className={`w-5 h-0.5 bg-slate-700 transition-all ${menuOpen ? "opacity-0" : ""}`} style={{marginBottom: '4px'}} />
+            <div className={`w-5 h-0.5 bg-slate-700 transition-all ${menuOpen ? "rotate-45 translate-y-1" : ""}`} style={{ marginBottom: "4px" }} />
+            <div className={`w-5 h-0.5 bg-slate-700 transition-all ${menuOpen ? "opacity-0" : ""}`} style={{ marginBottom: "4px" }} />
             <div className={`w-5 h-0.5 bg-slate-700 transition-all ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-slate-100 px-4 pb-5 pt-3 flex flex-col gap-1">
+        <div className="md:hidden bg-white border-t border-purple-100 px-4 pb-5 pt-3 flex flex-col gap-1 shadow-lg">
           {NAV_LINKS.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium rounded-lg hover:bg-blue-50 transition-all"
+              className="text-slate-600 hover:text-purple-700 px-3 py-2 text-sm font-medium rounded-lg hover:bg-purple-50 transition-all"
             >
               {link.name}
             </a>

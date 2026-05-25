@@ -8,6 +8,9 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export const metadata = {
   title: `${SITE.name} — ${SITE.tagline}`,
   description: SITE.description,
+  icons: {
+    icon: SITE.icon,
+  },
   openGraph: {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,

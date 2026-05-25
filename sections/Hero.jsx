@@ -14,7 +14,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 55% at 70% 30%, rgba(37,99,235,0.08) 0%, transparent 65%)",
+            "radial-gradient(ellipse 70% 55% at 70% 30%, rgba(147,51,234,0.09) 0%, transparent 65%)",
         }}
       />
 
@@ -35,7 +35,7 @@ export default function Hero() {
         className="absolute top-[10%] right-[-5%] w-[500px] h-[500px] rounded-full pointer-events-none float"
         style={{
           background:
-            "radial-gradient(circle, rgba(96,165,250,0.10) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(147,51,234,0.12) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -47,8 +47,8 @@ export default function Hero() {
           {/* ── LEFT: Text content ── */}
           <div className="flex-1 text-left lg:max-w-[52%]">
             {/* Badge */}
-            <div className="animate-fade-up inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block" />
+            <div className="animate-fade-up inline-flex items-center gap-2 bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-8 tracking-wide uppercase">
+              <span className="w-1.5 h-1.5 bg-purple-500 rounded-full inline-block" />
               Cloud Assessment Platform
             </div>
 

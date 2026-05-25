@@ -22,6 +22,7 @@ export const SITE = {
   // Auth / signup redirect
   signupUrl: "/signup",
   loginUrl: "/login",
+  icon: "/lens.svg",
 };
 
 export const NAV_LINKS = [
