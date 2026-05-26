@@ -48,6 +48,8 @@ export default function CTA() {
           Or{" "}
           <a
             href={SITE.signupUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-purple-600 font-medium hover:underline"
           >
             create your account now →

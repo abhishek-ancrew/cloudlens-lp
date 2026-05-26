@@ -20,8 +20,8 @@ export const SITE = {
   },
 
   // Auth / signup redirect
-  signupUrl: "/signup",
-  loginUrl: "/login",
+  signupUrl: "https://cloudlensai.com",
+  loginUrl: "https://cloudlensai.com",
   icon: "/lens.svg",
 };
 

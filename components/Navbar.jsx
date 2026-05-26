@@ -45,17 +45,15 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href={SITE.loginUrl}
-              className="text-slate-500 hover:text-purple-700 text-sm font-medium transition-colors"
+            <a 
+              href={SITE.signupUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-primary"
             >
-              Log in
-            </a>
-            <a href={SITE.signupUrl} className="btn-primary text-sm py-2 px-5">
               {SITE.cta.primary}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
@@ -87,7 +85,12 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <a href={SITE.signupUrl} className="btn-primary text-sm mt-3 justify-center">
+          <a 
+            href={SITE.signupUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-primary mt-3 justify-center"
+          >
             {SITE.cta.primary}
           </a>
         </div>
