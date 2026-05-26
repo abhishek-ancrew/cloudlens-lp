@@ -8,7 +8,7 @@ export const SITE = {
   tagline: "Cloud Assessments, Reimagined.",
   description:
     "Upload your AWS bills. We find what's costing you—and what's exposing you. Zero guesswork, full clarity.",
-  url: "https://cloudlensai.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://cloudlensai.com",
   email: "hello@cloudlensai.com",
   year: 2026,
 
@@ -20,8 +20,8 @@ export const SITE = {
   },
 
   // Auth / signup redirect
-  signupUrl: "http://app.cloudlensai.com",
-  loginUrl: "http://app.cloudlensai.com",
+  signupUrl: process.env.NEXT_PUBLIC_APP_URL || "https://app.cloudlensai.com",
+  loginUrl: process.env.NEXT_PUBLIC_APP_URL || "https://app.cloudlensai.com",
   icon: "/lens.svg",
 };
 
