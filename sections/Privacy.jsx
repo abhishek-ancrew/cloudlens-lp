@@ -1,8 +1,14 @@
+"use client";
+import { useState } from "react";
 import { SITE, PRIVACY_POINTS } from "../data/site";
+import TermsModal from "../components/TermsModal";
 
 export default function Privacy() {
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
+
   return (
     <section id="privacy" className="py-28 px-4" style={{ background: "var(--surface)" }}>
+      <TermsModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left — text */}
@@ -17,7 +23,7 @@ export default function Privacy() {
               We extract only what's needed for the assessment, then stop there.
             </p>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 mb-10">
               {PRIVACY_POINTS.map((p, i) => (
                 <div key={i} className="flex gap-4">
                   {/* Shield icon */}
@@ -36,6 +42,16 @@ export default function Privacy() {
                 </div>
               ))}
             </div>
+
+            <button 
+              onClick={() => setIsTermsOpen(true)}
+              className="group flex items-center gap-2 text-sm font-semibold text-purple-600 hover:text-purple-700 transition-colors"
+            >
+              Read full Terms & Conditions
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
           </div>
 
           {/* Right — visual block */}

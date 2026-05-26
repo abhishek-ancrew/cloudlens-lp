@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
-import { SITE, NAV_LINKS } from "../data/site";
+import { SITE, NAV_LINKS, RESOURCES_LINKS } from "../data/site";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -32,7 +33,6 @@ export default function Navbar() {
             />
           </a>
 
-          {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <a
@@ -43,6 +43,38 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+
+            {/* Resources Dropdown */}
+            <div className="relative">
+              <button
+                onMouseEnter={() => setResourcesOpen(true)}
+                onMouseLeave={() => setResourcesOpen(false)}
+                className="text-slate-500 hover:text-purple-700 px-4 py-2 text-sm font-medium rounded-full hover:bg-purple-50 transition-all flex items-center gap-1"
+              >
+                Resources
+                <svg className={`w-4 h-4 transition-transform ${resourcesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {resourcesOpen && (
+                <div 
+                  onMouseEnter={() => setResourcesOpen(true)}
+                  onMouseLeave={() => setResourcesOpen(false)}
+                  className="absolute top-full left-0 mt-1 w-48 bg-white border border-purple-100 rounded-xl shadow-xl py-2 animate-scale-in origin-top-left z-[60]"
+                >
+                  {RESOURCES_LINKS.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className="block px-4 py-2 text-sm text-slate-600 hover:bg-purple-50 hover:text-purple-700 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -76,6 +108,20 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-purple-100 px-4 pb-5 pt-3 flex flex-col gap-1 shadow-lg">
           {NAV_LINKS.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-slate-600 hover:text-purple-700 px-3 py-2 text-sm font-medium rounded-lg hover:bg-purple-50 transition-all"
+            >
+              {link.name}
+            </a>
+          ))}
+          {/* Mobile Resources */}
+          <div className="px-3 py-2 text-xs font-semibold uppercase tracking-widest text-slate-400 mt-2">
+            Resources
+          </div>
+          {RESOURCES_LINKS.map((link) => (
             <a
               key={link.name}
               href={link.href}

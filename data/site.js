@@ -28,8 +28,10 @@ export const SITE = {
 export const NAV_LINKS = [
   { name: "Features", href: "#features" },
   { name: "How It Works", href: "#how-it-works" },
-  { name: "Privacy", href: "#privacy" },
-  { name: "Contact", href: "#contact" },
+];
+
+export const RESOURCES_LINKS = [
+  { name: "Blogs", href: "#" },
 ];
 
 export const STATS = [
@@ -62,7 +64,7 @@ export const FEATURES = [
     icon: "🤝",
     title: "Expert Consultancy",
     description:
-      "Every assessment comes with access to our cloud experts. We don't just find problems—we sit with you to implement every recommendation.",
+      "Every assessment comes with directional guidance. We advise obtaining formal review from a Cloud Solutions Architect before production deployments.",
   },
   {
     icon: "🗂️",
@@ -107,21 +109,21 @@ export const HOW_IT_WORKS = [
 
 export const PRIVACY_POINTS = [
   {
-    title: "No sensitive data stored",
-    body: "AWS Account IDs, billing account details, and anything that could identify your organisation is stripped before storage.",
+    title: "No PII in AI Pipeline",
+    body: "AWS account IDs and personally identifiable billing data are architecturally excluded from all AI processing. Our engine sees service signals, never people.",
   },
   {
-    title: "Encrypted in transit and at rest",
-    body: "All uploads travel over TLS 1.3 and are stored with AES-256 encryption. Your data is never shared with third parties.",
+    title: "AES-256 KMS Encryption",
+    body: "Service signals are stored in Amazon RDS and encrypted at rest using AES-256, with key management delegated to AWS KMS.",
   },
   {
-    title: "You own your data",
-    body: "Delete your account and every associated record—bills, assessments, reports—is permanently purged within 24 hours.",
+    title: "Customer-Owned Lifecycle",
+    body: "Delete your assessment and every associated record is permanently purged from our RDS instances within 24 hours. No vendor retention.",
   },
 ];
 
 export const FOOTER_LINKS = [
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms of Service", href: "/terms" },
-  { name: "Contact", href: "#contact" },
+  { name: "Privacy Policy", href: "#privacy" },
+  { name: "Terms & Conditions", href: "#terms" },
+  { name: "Contact", href: "mailto:hello@cloudlensai.com" },
 ];
